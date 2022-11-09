@@ -1,0 +1,61 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+div{
+   border-radius: 8px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 200px 800px;
+    grid-template-rows: 100px 1000px;
+    background-color: azure;
+    gap: 1em;
+}
+
+.sidebar{
+    grid-row: span 2;
+    background-color: blueviolet;
+}
+
+
+.main{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1em;
+}
+
+.projects{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: Auto repeat(3, 1fr);
+    background-color: gray;
+    gap: 1em;
+    padding:1em;
+}
+
+.projects h1{
+    grid-column: span 2;
+}
+
+.card{
+    background-color: green;
+    padding:10%;
+}
+.header{
+    background-color: orange;
+}
+
+.announcements{
+    background-color: brown;
+    padding: 1em;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto 1fr;
+    gap:1em;
+}
+
+.announcements div{
+    background-color: chartreuse;
+}
