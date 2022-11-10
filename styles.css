@@ -12,14 +12,21 @@ div{
 
 .container{
     display: grid;
-    grid-template-columns: minmax(200px, 300px) minmax(800px, 4fr);
-    grid-template-rows: 100px 1000px;
     background-color: azure;
     gap: var(--gap);
+
+    grid-template:
+    "sidebar header" 100px
+    "sidebar main" 1fr
+    / minmax(150px, 1fr) minmax(468px, 4fr);
+
+    transition: all 0.5s ease;
+    height:100vh;
+    position:relative;
 }
 
 .sidebar{
-    grid-row: span 2;
+    grid-area: sidebar;
     background-color: blueviolet;
 }
 
@@ -28,6 +35,7 @@ div{
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: var(--gap);
+    grid-area: main;
 }
 
 .projects{
@@ -49,6 +57,7 @@ div{
 }
 .header{
     background-color: orange;
+    grid-area: header;
 }
 
 .announcements{
@@ -62,4 +71,25 @@ div{
 
 .announcements div{
     background-color: chartreuse;
+}
+
+@media screen and (max-width: 800px) {
+    :root{
+        --gap:0.5em;
+    }
+
+    .container{
+
+        grid-template: 
+        "header" auto
+        "sidebar" auto
+        "announcments"
+        "main" 4fr
+        / 1fr;
+
+        height:500vh
+ 
+    }
+
+    
 }
