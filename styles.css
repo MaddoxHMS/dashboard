@@ -2,7 +2,7 @@
     --gap: 1.5em;
 }
 
-*{
+*, h1{
     margin: 0px;
     padding: 0px;
 }
@@ -33,27 +33,39 @@ div{
 
 .main{
     display: grid;
-    grid-template-columns: 2fr 1fr;
     gap: var(--gap);
     grid-area: main;
+
+    grid-template:
+    "projects announcements"
+    / 3fr 1fr;
+
 }
 
 .projects{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: Auto repeat(3, 1fr);
     background-color: gray;
     gap: var(--gap);
     padding:var(--gap);
+
+    grid-area: projects;
+
+    grid-template:
+    "mheader mheader" 50px
+    / 1fr 1fr;
 }
 
 .projects h1{
-    grid-column: span 2;
+    grid-area: mheader;
+    padding: 0px
 }
 
 .card{
     background-color: green;
     padding:var(--gap);
+    min-width: 200px;
+    max-width:600px;
+    justify-self: center;
 }
 .header{
     background-color: orange;
@@ -67,13 +79,15 @@ div{
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto 1fr;
     gap: var(--gap);
+
+    grid-area: announcements;
 }
 
 .announcements div{
     background-color: chartreuse;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     :root{
         --gap:0.5em;
     }
@@ -81,15 +95,34 @@ div{
     .container{
 
         grid-template: 
-        "header" auto
-        "sidebar" auto
+        "header" 50px
+        "sidebar" 50px
         "announcments"
         "main" 4fr
         / 1fr;
 
-        height:500vh
+
  
     }
 
-    
+    .card{
+        min-height: 200px;
+    }
+
+
+
+    .main{
+        grid-template: 
+        "announcements" 1fr
+        "projects" auto
+        / 1fr
+    }
+}
+
+@media  screen and (max-width: 650px) {
+    .projects{
+        grid-template:
+        'mheader' auto
+        / 1fr;
+    }
 }
