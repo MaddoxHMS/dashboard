@@ -70,14 +70,60 @@
 }
 
 .card{
-    background-color: var(--white);
-    padding:1em;
-    min-width: 200px;
-    max-width:600px;
+    background-color: var(--sec-color);
+    min-width: 30ch;
+    max-width:450px;
+    max-height: 300px;
     justify-self: center;
     border-radius: 10px;
     box-shadow: 2px 5px 5px black;
     transition: all 200ms;
+    display:grid;
+ 
+    padding-left: 1em;
+
+
+
+}
+.card>div{
+    background-color: var(--white);
+}
+
+.card-content-container{
+    
+    border-radius: 0px 10px 10px 0px;
+    display: grid;
+    grid-template:
+    "card-head" auto
+    "card-content" auto
+    "card-buttons" auto
+    / 1fr;
+    padding:1em;
+    gap:1em;
+}
+
+.button{
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    background-color: var(--side-col);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-head{
+    grid-area: card-head;
+}
+.card-content{
+    grid-area: card-content;
+}
+
+.card-buttons{
+    grid-area: card-buttons;
+    display: flex;
+    justify-content: end;
+    gap: 1.5em;
+    align-self: grid;
 }
 .header{
     background-color:var(--white);
